@@ -1,0 +1,39 @@
+//COLORS
+$vert: #4F7302;
+$offWhite: #F3ECDC;
+$jaune: #F2A20C;
+$jauneP: #FBE0AE;
+$orange: #D96B0B;
+$rouge: #BF0404;
+$noir: #101700;
+$gris: #B5B7B1;
+$blanc: #FFFFFF;
+
+$color-primary: $vert;
+$color-primaryP: $offWhite;
+$color-secondary: $jaune;
+$color-secondaryP: $jauneP;
+$color-secondaryD: $orange;
+$color-accent: $rouge;
+$color-black: $noir;
+$color-grey: $gris;
+$color-white: $blanc;
+
+
+//FONTS
+@font-face {
+    font-family: "RobotoItalic";
+    src: url(../fonts/robotocondensed-italic-variablefont_wght-webfont.woff2) format("woff2"),
+         url(../fonts/robotocondensed-italic-variablefont_wght-webfont.woff) format("woff");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../fonts/robotocondensed-variablefont_wght-webfont.woff2) format("woff2"),
+         url(../fonts/robotocondensed-variablefont_wght-webfont.woff) format("woff");
+}
+
+// BREAKPOINTS
+$small: 640px;
+$medium: 768px;
+$large: 1024px;

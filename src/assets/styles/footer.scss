@@ -1,0 +1,14 @@
+//PARTIALS
+@use "partials/mixins" as mixins;
+@use "partials/variables" as var;
+
+footer {
+    display: flex;
+    bottom: 0;
+    grid-area: footer;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var.$color-primary;
+    box-sizing:border-box;
+}

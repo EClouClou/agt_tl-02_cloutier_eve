@@ -1,0 +1,23 @@
+@use 'variables' as var;
+
+@mixin button-reset($button-type: transparent, $weight: 900, $text: var.$color-white) {
+    background: $button-type;
+    border: none;
+    font-family: "Roboto";
+    color: $text;
+    font-weight: $weight;
+}
+
+@mixin flex-center($direction: row, $justify: space-between, $align: center, $gap: none) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin desktop {
+    @media (min-width: var.$large) {
+        @content;
+    }
+}

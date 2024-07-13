@@ -1,0 +1,703 @@
+//PARTIALS
+@use "partials/mixins" as mixins;
+@use "partials/variables" as var;
+
+//MODULES
+@use "body";
+@use "header";
+@use "footer";
+@use "overlay";
+
+//COMPONENTS
+@use "buttons";
+
+main {
+    display: flex;
+    flex-direction: column;
+    grid-area: main;
+    background-color: var.$color-primaryP;
+    @include mixins.desktop {
+        width: min(1600px, 94vw + 2%);
+        margin: 0 auto;
+        }
+    }
+
+//SECTIONS LIENS RAPIDES
+.liens-rapides {
+    display: grid;
+    grid-column: span 4;
+    grid-template-areas:
+    "quiklink quiklink quiklink quiklink"
+    "quiklink quiklink quiklink quiklink";
+    gap: 1.25rem;
+    padding-top: 3.4rem;
+    justify-content: center;
+    align-items: center;
+    @include mixins.desktop {
+        display: flex;
+        justify-content: center;
+        gap: 1.25rem;
+    }
+}
+
+.quik-link {
+    grid-area: quik-link;
+    overflow-x: visible;
+    width: 4.65rem;
+    height: 3rem;
+    background-color: var.$color-secondary;
+    @include mixins.desktop {
+        width: 7.5rem;
+        height: 5.3rem;
+    }
+    .veg {
+        width: 80%;
+        margin-top: -1rem;
+        align-items: center;
+    }
+    a {
+        display: flex;
+        justify-content: center;
+    }
+}
+        
+.white {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        padding: 1rem 0 2.75rem 0;
+    }
+}
+
+//CONTENU PRINCIPAL
+.contenu-principal {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    @include mixins.desktop {
+    }
+}
+
+//SECTION UN
+.section-un {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+    /*grid-template-columns: repeat(3, 1fr);*/
+    padding: 5rem 0 0 1rem;
+    @include mixins.desktop {
+        width: min(1280px, 88%);
+        margin: 0 auto;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+}
+
+.raisons {
+        gap: 1.25rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        @include mixins.desktop {
+            justify-content: center;
+        }
+}
+
+.raison {
+    
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    img {
+        width: 18rem;
+        @include mixins.desktop {
+            width: 26rem;
+        }
+
+    }
+    h3,
+    p {
+        width: 17rem;
+        text-align: center;
+        @include mixins.desktop {
+            width: 25rem;
+        }
+    }
+    i {
+        padding-left: 0.5rem;
+    }
+}
+
+//SECTION DEUX
+.section-deux {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: hidden;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 5rem 0 0 1rem;
+
+    @include mixins.desktop {
+        width: min(1280px, 83%);
+        margin: 0 auto;
+        overflow: hidden;
+    }
+}
+
+.formules {
+    display: flex;
+    gap: 2rem;
+    clip-path: fill-box;
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
+
+.formule {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    object-fit: cover;
+    justify-content: flex-start;
+    clip-path: fill-box;
+    img {
+        width: 18.5rem;
+        height: 18.5rem;
+        object-fit: cover;
+        z-index: 1;
+        position: relative;
+    }
+    i{
+        padding: 0.2rem;
+    }
+}
+
+.btn-formule--fav {
+    position: absolute;
+    z-index: 2;
+    transform: translate(1rem, -18rem);
+}
+
+.btn-formule--nouveau {
+    position: absolute;
+    z-index: 3;
+    transform: translate(1rem, -4.2rem);
+}
+
+.stars {
+    padding-bottom: 0.5rem;
+    i {
+        color: var.$color-secondary;
+        padding: 0;
+        margin-right: -0.3rem;
+    }
+    @include mixins.desktop {
+        display: none;
+    }
+}
+
+.formule-bas {
+    margin: -0.15rem 0 2rem 0;
+    padding: 0 1rem 1rem 1rem;
+    background-color: var.$color-white;
+    @include mixins.desktop {
+        background-color: transparent;
+    }
+}
+
+.prix {
+    font-size: 1.18rem;
+    font-weight: 900;
+    @include mixins.desktop {
+        display: none;
+    }
+}
+
+
+.btn-prix {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    @include mixins.desktop {
+        display: none;
+    }
+}
+
+.btn-prix
+    {width: 100%};
+
+//SECTION TROIS
+.section-trois {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: hidden;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 5rem 0 0 1rem;
+    background-color: var.$color-white;
+
+    @include mixins.desktop {
+        width: min(1500px, 94vw + 2%);
+        margin: 0 auto;
+        padding: 0 3.2rem;
+        overflow: hidden;
+    }
+}
+
+.legumes {
+    display: flex;
+    gap: 2rem;
+    clip-path: fill-box;
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
+
+.legume {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    object-fit: cover;
+    justify-content: flex-start;
+    clip-path: fill-box;
+    /*scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;*/
+    img {
+        width: 18.5rem;
+        height: 18.5rem;
+        object-fit: cover;
+        z-index: 1;
+        position: relative;
+        border: 2px solid var.$color-black;
+        
+        @include mixins.desktop {
+            width: 21.5rem;
+            height: 21.5rem;
+        }
+    }
+
+    h3 {
+        padding: 0; 
+    }
+
+    i{
+        padding: 0.2rem;
+    }
+}
+
+
+.btn-legumes--fav {
+    position: absolute;
+    z-index: 2;
+    transform: translate(1rem, -18rem);
+    @include mixins.desktop {
+        transform: translate(1rem, -20.8rem);        
+    }
+}
+
+.btn-legumes--acheter {
+    position: absolute;
+    z-index: 3;
+    transform: translate(1rem, -4.2rem);
+}
+
+.stars-legumes {
+    padding-bottom: 0.5rem;
+    i {
+        color: var.$color-secondary;
+        padding: 0;
+        margin-right: -0.3rem;
+    }
+}
+
+.legumes-bas {
+    margin: -0.15rem 0 2rem 0;
+    padding-bottom: 2rem;
+}
+
+.prix-legumes {
+    font-size: 1.18rem;
+    font-weight: 900;
+}
+
+
+.btn-prix-legumes {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.btn-prix-legumes
+    {width: 100%};
+
+//SECTION QUATRE
+.section-quatre {
+    background-color: var.$color-white;
+}
+
+.fermier-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    "ferme-right ferme-right ferme-right ferme-right"
+    "ferme-left ferme-left ferme-left ferme-left"; 
+    margin-top: 5rem;
+    background-color: var.$color-primaryP;
+    @include mixins.desktop {
+        display: grid;
+        justify-content: left;
+        align-items: center;
+        margin: 5rem auto 0 auto;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-areas:
+        "ferme-left ferme-left ferme-left ferme-left ferme-left ferme-left ferme-right ferme-right ferme-right ferme-right ";
+    }
+}
+
+.fermier-left {
+    display: grid;
+    @include mixins.flex-center(column);
+    grid-area: ferme-left;
+    padding-bottom: 2rem;
+    h1 {
+        font-size: 1.125rem;
+    }
+    @include mixins.desktop {
+        padding-bottom: 0rem;
+        h1 {
+            font-size: 2.5rem;
+        }
+
+    }
+}
+
+.fermier-right {
+    display: grid;
+    grid-area: ferme-right;
+    clip-path: polygon(0 19%, 59% 0, 100% 0, 100% 71%, 0 100%, 0% 50%);
+    order:2;
+    background-color: var.$color-primaryP;
+    @include mixins.desktop {
+        justify-content: flex-end;
+        clip-path: polygon(0 0, 75% 0, 100% 100%, 25% 100%);
+
+    }
+
+    img {
+        height: 24rem;
+        max-width:100%;
+        object-fit: cover;
+        object-position: top right;
+        @include mixins.desktop {
+            height: 32rem;
+            max-width: 100%;
+        }
+    }
+}
+
+.btn-fermier {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+//SECTION CINQ
+.section-cing--container {
+    display: flex;
+    justify-content: center;
+    align-items: last baseline;
+    position: relative;
+    width: 100%;
+    background-color: var.$color-white;
+    @include mixins.desktop {
+
+    }
+}
+
+.section-cinq {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: hidden;
+    padding-bottom: 5rem;
+    grid-template-columns: repeat(4, 1fr);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    background-color: var.$color-primary;
+    z-index: 5;
+    position: relative;
+    @include mixins.desktop {
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+        height: 1000px;
+        margin: -0.2rem auto 0 auto;
+        overflow: hidden;
+    }
+}
+
+.section-cinq--dessous {
+    display: block;
+    background-color: var.$color-secondary;
+    position:absolute;
+    z-index: 4;
+    @include mixins.desktop {
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+        width: min(1600px, 94vw + 2%);
+        height: 900px;
+        transform: scaleX(-1);
+        margin: 100 auto 0 auto;
+        overflow: hidden;
+        z-index: 4;
+    }
+}
+
+.speciaux-title {
+    display: flex;
+    flex-direction: column;
+    width: min(1260px, 94vw + 2%);
+    margin: 0 auto;
+    padding: 1rem;
+    h2 {
+        color: var.$color-white;
+    }
+    @include mixins.desktop {
+
+    }
+}
+
+.speciaux {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2rem;
+    clip-path: fill-box;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    width: min(1260px, 100%);
+}
+
+.special {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    object-fit: cover;
+    justify-content: flex-start;
+    clip-path: fill-box;
+    img {
+        width: 18.1rem;
+        height: 18.1rem;
+        object-fit: cover;
+        z-index: 1;
+        position: relative;
+        @include mixins.desktop {
+
+        }
+    }
+    i{
+        padding: 0.2rem;
+    }
+}
+
+
+.btn-speciaux--fav {
+    position: absolute;
+    z-index: 2;
+    transform: translate(1rem, -18rem);
+    @include mixins.desktop {      
+    }
+}
+
+.stars-speciaux {
+    padding-bottom: 0.5rem;
+    i {
+        color: var.$color-secondary;
+        padding: 0;
+        margin-right: -0.3rem;
+    }
+}
+
+.speciaux-bas {
+    margin: -0.3rem 0 2rem 0;
+    padding: 0 1rem 1rem 1rem;
+    background-color: var.$color-secondaryP;
+}
+
+.prix-speciaux {
+    font-size: 1.18rem;
+    font-weight: 900;
+}
+
+
+.btn-speciaux--acheter {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-speciaux--acheter
+    {width: 100%};
+
+//SECTION SIX
+.section-six {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding-top: 2rem;
+    background-color: var.$color-white;
+}
+
+.media-title {
+    padding-bottom: 4.5rem;
+    @include mixins.desktop{
+        width: 40%;
+    }
+}
+
+.medias {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+    justify-content: center;
+    clip-path: fill-box;
+    flex-wrap: wrap;
+    @include mixins.desktop {
+        gap: 1.25rem;
+    }
+
+}
+
+.media {
+    display: flex;
+    justify-content: center;
+    p,
+    a {
+        text-align: center;
+        color: var.$color-white;
+    }
+
+    img {
+        max-width: 11rem;
+        height: 11rem;
+        object-fit: cover;
+        position: relative;
+        z-index: 5;
+        @include mixins.desktop {
+            max-width: 18.1rem;
+            height: 18.1rem;
+        }
+    }
+}
+
+.media-source {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-media {
+    position: absolute;
+    text-decoration: none;
+    transform: translateY(-1.5rem);
+    font-size: 0.75rem;
+    color: var.$color-white;
+    font-weight: 900;
+    text-shadow: 2px 2px var.$color-black;
+    z-index: 6;
+    @include mixins.desktop {
+        transform: translateY(-2.5rem);
+    }
+}
+
+.section-sept {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 3.4rem;
+    background-color: var.$color-white;
+    @include mixins.desktop {
+        display: grid;
+        grid-template-areas:
+        ". . conservation conservation conservation  abonner abonner abonner . . "
+        ". . conservation conservation conservation  contenu-panier contenu-panier contenu-panier . . ";
+    }
+}
+
+.conservation {
+    grid-area: conservation;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    clip-path: fill-box;
+    img {
+        width:100%;
+        object-fit: contain;
+
+    }
+}
+
+.texte-conservation {
+    background-color: #ffffff90;
+    text-align: center;
+    padding: 1rem;
+    transform: translateY(-72rem);
+    z-index: 9;
+}
+
+.abonner {
+    grid-area: abonner;
+    display: flex;
+    flex-direction: row;
+    gap: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    @include mixins.desktop {
+        flex-direction: row;
+    }
+    img {
+        max-width:100%;
+        object-fit: contain;
+    }
+}
+
+
+.texte-abonne,
+.texte-contenu {
+    background-color: var.$color-white;
+    padding: 1rem;
+}
+
+.contenu-panier {
+    grid-area: contenu-panier;
+    gap: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    @include mixins.desktop {
+        flex-direction: row;
+    }
+    img {
+        max-width:100%;
+        object-fit: contain;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

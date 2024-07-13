@@ -1,0 +1,111 @@
+//PARTIALS
+@use "partials/mixins" as mixins;
+@use "partials/variables" as var;
+
+* {
+    margin: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.25rem;
+    grid-template-areas:
+    "header1 header1 header1 header1"
+    "main main main main"
+    "footer footer footer footer";
+    @include mixins.desktop{
+        grid-template-columns: repeat(10, 1fr);
+        margin: 0;
+        gap: 1.25rem;
+        grid-template-areas:
+        "header1 header1 header1 header1 header1 header1 header1 header1 header1 header1"
+        "main main main main main main main main main main"
+        "footer footer footer footer footer footer footer footer footer footer";
+    }
+}
+
+/*header,
+footer {
+    grid-column: span 4;
+    @include mixins.desktop{
+        grid-column: span 5;
+    }
+}*/
+
+h1 {
+    font-family: "Roboto";
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+}
+
+h2 {
+    font-family: "Roboto";
+    padding-bottom: 2.5rem;
+    padding-top: 5rem;
+}
+
+h3 {    
+    font-family: "Roboto";
+    padding: 1rem 0 1.8rem 0;
+}
+
+h4 {
+    font-family: "Roboto";
+}
+
+h5 {
+    font-family: "Roboto";
+    font-size: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+h6 {
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0 0 0.8rem 0;
+}
+
+p {
+    font-family: "Roboto";
+    color: var.$color-black;
+    font-weight: 300;
+    padding: 0 0 1rem 0;
+}
+
+li {
+    font-family: "Roboto";
+    list-style-type: none;
+}
+
+button {
+    font-family: "Roboto";
+}
+
+i {
+    cursor: pointer;
+}
+
+a {
+    font-family: "Roboto";
+    text-decoration: none;
+    color: var.$color-black;
+    font-weight: 900;
+
+    &:hover {
+        color: var.$color-black;
+    }
+
+    &:active {
+        color: var.$color-accent;
+
+    &:focus {
+        color: var.$color-secondaryD;
+    }
+    }
+}
+
+.gras {
+    font-weight: 900;
+}

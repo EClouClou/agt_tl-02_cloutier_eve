@@ -1,0 +1,43 @@
+//PARTIALS
+@use "partials/mixins" as mixins;
+@use "partials/variables" as var;
+
+.text-btn {
+    @include mixins.button-reset($button-type: transparent, $weight: 900, $text: var.$color-white);
+    font-size: 0.75rem;
+    text-decoration: underline;
+        }
+
+button {
+    @include mixins.button-reset($button-type: transparent, $weight: 900, $text: var.$color-white);
+    font-size: 1rem;
+}
+
+.btn-farmer {
+    @include mixins.flex-center;
+    @include mixins.button-reset;
+    background-color: var.$color-secondary;
+    border: 2px solid var.$color-white;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    text-align: center;
+}
+
+.btn-farmert {
+    @include mixins.flex-center;
+    color: var.$color-white;
+    @include mixins.button-reset;
+    border: 2px solid var.$color-white;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+}
+
+.btn-favori {
+    display: flex;
+    @include mixins.button-reset;
+    width: fit-content;
+    background-color: var.$color-secondary;
+    border: 2px solid var.$color-white;
+    border-radius: 2rem;
+    padding: 0.8rem;
+}

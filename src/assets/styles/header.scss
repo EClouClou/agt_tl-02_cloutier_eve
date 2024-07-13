@@ -1,0 +1,229 @@
+//PARTIALS
+@use "partials/mixins" as mixins;
+@use "partials/variables" as var;
+
+//HEADER
+header {
+    display: grid;
+    grid-area: header1;
+    background-color: var.$color-primary;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    position: relative;
+    i {
+        color: var.$color-white;
+    }
+    a {
+        color: var.$color-white;
+    }
+    @include mixins.desktop {
+        width: min(1600px, 94vw + 2%);
+        margin: 0 auto;
+    }
+}
+
+//HEADER-TOP
+.header-top {
+    display: grid;
+    @include mixins.flex-center;
+    padding: 0 0 0.5rem 0;
+    p {
+        font-size: 0.75rem;
+        padding: 0;
+        color: var.$color-white;
+    }
+}
+
+.btn-farmert.point-livraison {
+    display: none;
+    @include mixins.desktop {
+        display: block;
+        font-size: 0.75rem;
+        padding: 0.8rem;
+        @include mixins.flex-center;
+
+        i{
+            padding-right: 0.5rem;
+        }
+    }
+}
+
+.offre-slider {
+    @include mixins.flex-center;
+    text-align: center;
+}
+
+.slide__slides {
+    @include mixins.flex-center(center);
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    cursor: pointer;
+}
+
+.slide {
+    @include mixins.flex-center(column);
+    min-width: 100%;
+    scroll-snap-align: start;
+}
+
+.slider__btn--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.top-btn--right {
+    @include mixins.flex-center(row);
+}
+
+.feature--close {
+    display: block;
+    @include mixins.desktop {
+        display: none;
+    }
+}
+
+.user, 
+.user-new {
+    display: none;
+    @include mixins.button-reset;
+    @include mixins.desktop {
+        display: block;
+        font-size: 0.75rem;
+        
+        i {
+            padding-right: 0.5rem;
+        }
+    }
+}
+
+//HEADER-BOTTOM
+.header-bottom {
+    @include mixins.flex-center;
+
+    p {
+        font-size: 0.75rem;
+        color: var.$color-white;
+    }
+}
+
+.header-bottom--left {
+    @include mixins.flex-center(row);
+    gap: 1rem;
+    img {
+        width: 5rem;
+        padding: 0 0 1rem 0;
+    }
+}
+
+.menu {
+    display: none;
+    @include mixins.desktop {
+        @include mixins.flex-center;
+        gap: 1rem;
+        li {
+            color: var.$color-white;
+            font-weight: 900;
+        }
+    }
+}
+
+.header-bottom--right {
+    @include mixins.flex-center;
+    gap: 1rem;
+}
+
+.feature-- {
+    display: none;
+}
+
+.burger {
+    display: block;
+    @include mixins.desktop {
+        display: none;
+    }
+}
+
+//DIALOG
+.dialog {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100dvw;
+    height: 100dvh;
+}
+
+.dialog[open] {
+    display: block;
+    animation: fadeIn 0.2s forwards;
+}
+
+.dialog[closing] {
+    animation: fadeOut 0.2s forwards;
+}
+
+//BANNER
+.banner {
+    display: grid;
+    /*grid-column: span 4;*/
+    grid-template-areas:
+    "banner-top banner-top banner-top banner-top"
+    "banner-bottom banner-bottom banner-bottom banner-bottom";
+    width: 100%;
+    background-color: var.$color-primaryP;
+    @include mixins.desktop {
+        display: grid;
+        grid-column: span 10;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: min(1600px, 94vw + 2%);
+        grid-template-areas:
+        "banner-bottom banner-bottom banner-bottom banner-bottom banner-bottom banner-top banner-top banner-top banner-top banner-top";
+    }
+}
+
+.banner-top {
+    grid-area: banner-top;
+}
+
+.fermier-banner {
+    width: 100%;
+    position: relative;
+}
+
+.banner-img {
+    width: 10rem;
+    position: absolute;
+    transform: translate(1rem, -5.8rem);
+}
+
+.banner-bottom {
+    grid-area: banner-bottom;
+    padding: 1rem 2rem;
+}
+
+.abonnement {
+    display: flex;
+    align-items: center;
+
+    p {
+        color: var.$color-black;
+        padding: 0;
+    }
+
+    i {
+        color: var.$color-black;
+    }
+}
+
+.btn-abonnement {
+    gap: 0.5rem;
+}
